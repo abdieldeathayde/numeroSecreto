@@ -1,5 +1,5 @@
 let listaDeNumerosSorteados = [];
-let numeroLimite = 4;
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 let pontos = 3;
@@ -37,7 +37,7 @@ function verificarChute() {
         tentativas++;
         limparCampo();
     }
-    if (tentativas > 3) {
+    if (pontos > 0) {
         pontos--;
         exibirTextoNaTela('h1', 'Você não tem mais vidas!');
         exibirTextoNaTela('p', `${pontos}`);
