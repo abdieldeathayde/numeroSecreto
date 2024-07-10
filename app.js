@@ -37,7 +37,7 @@ function verificarChute() {
         tentativas++;
         limparCampo();
     }
-    if (chute >= 3) {
+    if (chute >= 5) {
         exibirTextoNaTela('h1', 'Você não tem mais vidas!');
 
         document.getElementById('reiniciar').removeAttribute('disabled', true);
