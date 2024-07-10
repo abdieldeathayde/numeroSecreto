@@ -3,6 +3,8 @@ let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
+letdesabilitarChute;
+
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
@@ -24,7 +26,7 @@ function verificarChute() {
         let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
         let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
         exibirTextoNaTela('p', mensagemTentativas);
-        document.getElementById('reiniciar').removeAttribute('disabled');
+        document.getElementById('reiniciar').removeAttribute('disabled', true);
     } else {
         if (chute > numeroSecreto) {
             exibirTextoNaTela('p', 'O número secreto é menor');
@@ -34,6 +36,13 @@ function verificarChute() {
         tentativas++;
         limparCampo();
     }
+    if (tentativas >= 3) {
+        exibirTextoNaTela('h1', 'Você não tem mais vidas!');
+        document.getElementById('reiniciar').removeAttribute('disabled', true);
+        desabilitarChute = document.getElementById("Clicar").setAttribute('disabled', true);
+    }
+
+    
 }
 
 function gerarNumeroAleatorio() {
@@ -63,6 +72,9 @@ function reiniciarJogo() {
     tentativas = 1;
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled', true)
+    document.getElementById('reiniciar').removeAttribute('disabled', true);
+    desabilitarChute = document.getElementById("Clicar").removeAttribute('disabled', true);
+    
 }
 
 
