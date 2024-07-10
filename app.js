@@ -37,12 +37,8 @@ function verificarChute() {
         tentativas++;
         limparCampo();
     }
-    if (pontos > 0) {
-        pontos--;
+    if (chute >= 3) {
         exibirTextoNaTela('h1', 'Você não tem mais vidas!');
-        exibirTextoNaTela('p', `${pontos}`);
-
-        
 
         document.getElementById('reiniciar').removeAttribute('disabled', true);
         desabilitarChute = document.getElementById("Clicar").setAttribute('disabled', true);
