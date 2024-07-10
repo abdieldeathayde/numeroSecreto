@@ -1,7 +1,8 @@
 let listaDeNumerosSorteados = [];
-let numeroLimite = 10;
+let numeroLimite = 4;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
+let pontos = 3;
 
 letdesabilitarChute;
 
@@ -36,8 +37,13 @@ function verificarChute() {
         tentativas++;
         limparCampo();
     }
-    if (tentativas >= 3) {
+    if (tentativas > 3) {
+        pontos--;
         exibirTextoNaTela('h1', 'Você não tem mais vidas!');
+        exibirTextoNaTela('p', `${pontos}`);
+
+        
+
         document.getElementById('reiniciar').removeAttribute('disabled', true);
         desabilitarChute = document.getElementById("Clicar").setAttribute('disabled', true);
     }
